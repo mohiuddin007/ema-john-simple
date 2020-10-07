@@ -11,6 +11,7 @@ const Review = () => {
     const [cart, setCart] = useState([]);
     const [orderPlaced, setOrderPlaced] = useState(false);
     const history = useHistory();
+    document.title = "Review";
 
     const handleProceedCheckout = () =>{
         history.push('/shipment');
@@ -25,7 +26,7 @@ const Review = () => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
         
-       fetch('http://localhost:4000/productsByKeys', {
+       fetch('https://rocky-island-78364.herokuapp.com/productsByKeys', {
            method: 'POST', 
            headers: { 'Content-Type': 'application/json'},
            body: JSON.stringify(productKeys)

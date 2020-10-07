@@ -7,11 +7,13 @@ import './Shipment.css';
 const Shipment = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    document.title = 'Shipment';
+
     const onSubmit = data => {
       const savedCart = getDatabaseCart();
       const orderDetails = {...loggedInUser, products: savedCart, shipment: data, orderTime: new Date()}
 
-      fetch('http://localhost:4000/addOrder',{
+      fetch('https://rocky-island-78364.herokuapp.com/addOrder',{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(orderDetails)

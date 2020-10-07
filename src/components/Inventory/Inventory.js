@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Inventory = () => {
+    document.title = 'Manage Inventory';
     const handleAddProduct = () => {
         const product = {};
-        fetch('http://localhost:4000/addProduct', {
+        fetch('https://rocky-island-78364.herokuapp.com/addProduct', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
